@@ -7,17 +7,14 @@
 </script>
 
 <main>
-	<div class="center-stage">
-		<h1 class="count">{count}</h1>
-	</div>
-
+	<h1 class="count">{count}</h1>
+	
 	<button on:click={increment}>
-		Increment
+		INCREMENT
 	</button>
 </main>
 
 <style>
-	/* Resetting body defaults to ensure full screen dark mode */
 	:global(body) {
 		margin: 0;
 		padding: 0;
@@ -27,51 +24,47 @@
 	}
 
 	main {
-		height: 100vh; /* Full viewport height */
+		height: 100vh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center; /* This centers the whole group vertically */
+		gap: 2rem; /* Controls the distance between Number and Button */
 		overflow: hidden;
 	}
 
-	.center-stage {
-		flex: 1; /* Takes up all available vertical space */
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-	}
-
 	.count {
-		font-size: 12rem; /* Very large number */
+		font-size: 12rem;
 		font-weight: 200;
+		line-height: 1; /* Tighter line height to reduce gap */
 		margin: 0;
-		user-select: none; /* Prevents highlighting text when clicking fast */
-		font-variant-numeric: tabular-nums; /* Prevents jitter as numbers change width */
+		user-select: none;
+		font-variant-numeric: tabular-nums;
 	}
 
 	button {
-		margin-bottom: 3rem; /* Distance from the bottom edge */
 		padding: 1rem 3rem;
-		font-size: 1.25rem;
+		font-size: 1.5rem; /* Slightly larger text */
+		font-weight: 900; /* "Fatter" font weight */
+		letter-spacing: 1px;
+		text-transform: uppercase;
 		background-color: #1f1f1f;
 		color: #ffffff;
-		border: 1px solid #333;
-		border-radius: 8px;
+		border: 2px solid #333; /* Slightly thicker border */
+		border-radius: 12px;
 		cursor: pointer;
-		transition: all 0.2s ease;
+		transition: all 0.1s ease; /* Faster transition for snappier feel */
 		user-select: none;
 	}
 
 	button:hover {
 		background-color: #2a2a2a;
-		border-color: #555;
+		border-color: #666;
 		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 	}
 
 	button:active {
-		transform: translateY(0);
+		transform: translateY(1px);
 		background-color: #151515;
 	}
 </style>
